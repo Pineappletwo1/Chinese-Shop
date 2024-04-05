@@ -96,16 +96,16 @@ export default function Checkout() {
         <h2 className="text-2xl mb-8">
           ${cart.reduce((acc, p) => acc + p.price, 0) / 100}
         </h2>
-        <form class="p-6">
-          <h1 class="text-2xl">Full Name:</h1>
-          <input class="w-96 border-gray-200 rounded border-2 my-2 p-2" />
-          <h1 class="text-2xl">Email:</h1>
-          <input class="w-96 border-gray-200 rounded border-2 my-2  p-2" />
-          <h1 class="text-2xl">Address:</h1>
-          <input class="w-96 border-gray-200 rounded border-2 my-2  p-2" />
-          <h1 class="text-2xl">Credit Card Number:</h1>
+        <form className="p-6">
+          <h1 className="text-2xl">Full Name:</h1>
+          <input className="w-96 border-gray-200 rounded border-2 my-2 p-2" />
+          <h1 className="text-2xl">Email:</h1>
+          <input className="w-96 border-gray-200 rounded border-2 my-2  p-2" />
+          <h1 className="text-2xl">Address:</h1>
+          <input className="w-96 border-gray-200 rounded border-2 my-2  p-2" />
+          <h1 className="text-2xl">Credit Card Number:</h1>
           <input
-            class="w-96 border-gray-200 rounded border-2 my-2  p-2"
+            className="w-96 border-gray-200 rounded border-2 my-2  p-2"
             placeholder="Please do not input a real credit card number"
           />
         </form>
