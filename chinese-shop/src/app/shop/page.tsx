@@ -15,48 +15,55 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    nameEn: "Basmati Rice",
-    nameCn: "巴斯马蒂大米",
+    nameEn: "Rice",
+    nameCn: "一杠米大米",
     price: 800,
     inStock: true,
   },
-  { id: 2, nameEn: "Jeans", nameCn: "牛仔裤", price: 500, inStock: true },
-  { id: 3, nameEn: "Green Tea", nameCn: "绿茶", price: 300, inStock: false },
+  { id: 2, nameEn: "Jeans", nameCn: "一条牛仔裤", price: 500, inStock: true },
+  { id: 3, nameEn: "Green Tea", nameCn: "一杯绿茶", price: 300, inStock: false },
   {
     id: 4,
     nameEn: "White T-Shirt",
-    nameCn: "白色T恤",
+    nameCn: "一件白色T恤",
     price: 200,
     inStock: true,
   },
   {
     id: 5,
     nameEn: "Canned Beans",
-    nameCn: "罐装豆类",
+    nameCn: "一罐装豆类",
     price: 150,
     inStock: true,
   },
   {
     id: 6,
     nameEn: "Black Dress",
-    nameCn: "黑色连衣裙",
+    nameCn: "一条黑色连衣裙",
     price: 800,
     inStock: true,
   },
-  { id: 7, nameEn: "Oolong Tea", nameCn: "乌龙茶", price: 400, inStock: true },
-  { id: 8, nameEn: "Sneakers", nameCn: "运动鞋", price: 600, inStock: true },
+  { id: 7, nameEn: "Oolong Tea", nameCn: "一杯乌龙茶", price: 400, inStock: true },
+  { id: 8, nameEn: "Sneakers", nameCn: "一双运动鞋", price: 600, inStock: true },
   {
     id: 9,
     nameEn: "Laptop Bag",
-    nameCn: "手提电脑包",
+    nameCn: "一个手提电脑包",
     price: 300,
     inStock: true,
   },
   {
     id: 10,
     nameEn: "Instant Noodles",
-    nameCn: "方便面",
+    nameCn: "一包方便面",
     price: 100,
+    inStock: true,
+  },
+  {
+    id: 11,
+    nameEn: "Hat",
+    nameCn: "一顶帽子🧢",
+    price: "500",
     inStock: true,
   },
 ];
@@ -129,7 +136,7 @@ export default function Shop() {
                     : "Sold Out"
                   : product.inStock
                   ? "有货"
-                  : "售罄"}
+                  : "卖完了"}
               </p>
               <button
                 onClick={() => addToCart(product)}
