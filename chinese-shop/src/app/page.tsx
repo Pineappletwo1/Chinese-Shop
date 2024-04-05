@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <nav className="flex p-4 gap-4 bg-gray-200 items-center">
         <Link href="/">
-          <Image src={Logo} width={40} height={40} />
+          <Image src={Logo} width={40} height={40} alt="Logo" />
         </Link>
         <Link href="/">
           <h1 className="text-xl hover:bg-gray-300 rounded p-2">
