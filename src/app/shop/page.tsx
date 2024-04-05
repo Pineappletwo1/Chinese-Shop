@@ -11,7 +11,7 @@ type Product = {
 
 const products: Product[] = [
   { id: 1, name: 'temu worker', price: 100, inStock: false },
-  { id: 2, name: '🌿', price: 420, inStock: true },
+  { id: 2, name: '🌿', price: 421, inStock: true },
   // add more products as needed
 ];
 
