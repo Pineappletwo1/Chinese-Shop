@@ -95,6 +95,10 @@ export default function Shop() {
     if (cart) {
       setCart(JSON.parse(cart));
     }
+    const isOn = localStorage.getItem("isOn");
+    if (isOn) {
+      setIsOn(JSON.parse(isOn));
+    }
   }, []);
   const addToCart = (product: Product) => {
     if (product.inStock) {
@@ -128,7 +132,10 @@ export default function Shop() {
       <div className="bg-white p-4 flex items-center">
         <h1 className="mr-4">English On?</h1>
         <button
-          onClick={() => setIsOn(!isOn)}
+          onClick={() => {
+            setIsOn(!isOn);
+            localStorage.setItem("isOn", JSON.stringify(!isOn));
+          }}
           className={`w-16 h-8 bg-gray-300 rounded-full p-1 ${
             isOn ? "bg-green-500" : ""
           }`}
