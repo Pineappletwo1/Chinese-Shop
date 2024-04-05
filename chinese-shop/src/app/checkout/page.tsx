@@ -96,17 +96,23 @@ export default function Checkout() {
         <h2 className="text-2xl mb-8">
           ${cart.reduce((acc, p) => acc + p.price, 0) / 100}
         </h2>
-        <form className="p-6">
-          <h1 className="text-2xl">Full Name:</h1>
+        <form>
+          <h1 className="text-2xl">{isOn ? "Full Name:" : "全名:"}</h1>
           <input className="w-96 border-gray-200 rounded border-2 my-2 p-2" />
-          <h1 className="text-2xl">Email:</h1>
+          <h1 className="text-2xl">{isOn ? "Email" : "电子邮件地址:"}:</h1>
           <input className="w-96 border-gray-200 rounded border-2 my-2  p-2" />
-          <h1 className="text-2xl">Address:</h1>
+          <h1 className="text-2xl">{isOn ? "Address:" : "地址:"}</h1>
           <input className="w-96 border-gray-200 rounded border-2 my-2  p-2" />
-          <h1 className="text-2xl">Credit Card Number:</h1>
+          <h1 className="text-2xl">
+            {isOn ? "Credit Card Number:" : "信用卡号码:"}
+          </h1>
           <input
             className="w-96 border-gray-200 rounded border-2 my-2  p-2"
-            placeholder="Please do not input a real credit card number"
+            placeholder={
+              isOn
+                ? "Please do not input a real credit card number"
+                : "请不要输入真实的信用卡号码"
+            }
           />
         </form>
       </div>
