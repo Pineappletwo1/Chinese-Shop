@@ -61,7 +61,7 @@ export default function Home() {
           <p className="text-2xl text-white mt-6">
             {isOn
               ? "Welcome to Bold Beijing, your one-stop shop for all things Chinese!"
-              : "欢迎来打无所不有北京，这里你所有都可以找到！"}
+              : "欢迎光临无所不有北京，这里你所有都可以找到！"}
           </p>
         </div>
       </header>
