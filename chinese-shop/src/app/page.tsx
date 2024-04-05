@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
+import Logo from "./unnamed.jpg";
 
 export default function Home() {
   const [isOn, setIsOn] = useState(false);
   return (
     <div>
-      <nav className="flex p-4 gap-4 bg-gray-200">
+      <nav className="flex p-4 gap-4 bg-gray-200 items-center">
+        <Link href="/">
+          <Image src={Logo} width={40} height={40} />
+        </Link>
         <Link href="/">
           <h1 className="text-xl hover:bg-gray-300 rounded p-2">
             {isOn ? "Bold Beijing" : "无所不有北京"}
