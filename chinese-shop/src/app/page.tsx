@@ -20,7 +20,7 @@ export default function Home() {
         </Link>
         <Link href="/checkout">
           <h1 className="text-xl hover:bg-gray-300 rounded p-2 ">
-            {isOn ? "Checkout" : "查看"}
+            {isOn ? "Checkout" : "结帐"}
           </h1>
         </Link>
       </nav>
