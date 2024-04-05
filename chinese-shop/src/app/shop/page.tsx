@@ -15,8 +15,8 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    nameEn: "Basmati Rice",
-    nameCn: "巴斯马蒂大米",
+    nameEn: "Rice",
+    nameCn: "大米",
     price: 800,
     inStock: true,
   },
@@ -129,7 +129,8 @@ export default function Shop() {
                     : "Sold Out"
                   : product.inStock
                   ? "有货"
-                  : "售罄"}
+                  : "
+                  卖完了"}
               </p>
               <button
                 onClick={() => addToCart(product)}
