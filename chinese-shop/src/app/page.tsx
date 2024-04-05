@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-import Logo from "./unnamed.jpg";
+import Logo from "./unnamed.png";
 
 export default function Home() {
   const [isOn, setIsOn] = useState(false);

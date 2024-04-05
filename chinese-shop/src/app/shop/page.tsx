@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import { useState, useEffect } from "react";
 import Switch from "../../components/Switch";
+import Image from "next/image";
+import Logo from "../unnamed.png";
 
 interface Product {
   id: number;
@@ -20,8 +22,20 @@ const products: Product[] = [
     price: 800,
     inStock: true,
   },
-  { id: 2, nameEn: "Jeans 👖", nameCn: "一条牛仔裤 👖", price: 500, inStock: true },
-  { id: 3, nameEn: "Green Tea 🍵", nameCn: "一杯绿茶 🍵", price: 300, inStock: false },
+  {
+    id: 2,
+    nameEn: "Jeans 👖",
+    nameCn: "一条牛仔裤 👖",
+    price: 500,
+    inStock: true,
+  },
+  {
+    id: 3,
+    nameEn: "Green Tea 🍵",
+    nameCn: "一杯绿茶 🍵",
+    price: 300,
+    inStock: false,
+  },
   {
     id: 4,
     nameEn: "White and Red T-Shirt 👕",
@@ -36,8 +50,20 @@ const products: Product[] = [
     price: 800,
     inStock: true,
   },
-  { id: 7, nameEn: "Oolong Tea 🍵", nameCn: "一杯乌龙茶🍵", price: 400, inStock: true },
-  { id: 8, nameEn: "Sneakers 👟", nameCn: "一双运动鞋 👟", price: 600, inStock: true },
+  {
+    id: 7,
+    nameEn: "Oolong Tea 🍵",
+    nameCn: "一杯乌龙茶🍵",
+    price: 400,
+    inStock: true,
+  },
+  {
+    id: 8,
+    nameEn: "Sneakers 👟",
+    nameCn: "一双运动鞋 👟",
+    price: 600,
+    inStock: true,
+  },
   {
     id: 9,
     nameEn: "Backpack 🎒",
@@ -80,6 +106,9 @@ export default function Shop() {
   return (
     <>
       <nav className="flex p-4 gap-4 bg-gray-200">
+        <Link href="/">
+          <Image src={Logo} width={40} height={40} alt="Logo" />
+        </Link>
         <Link href="/">
           <h1 className="text-xl hover:bg-gray-300 rounded p-2">
             {isOn ? "Bold Beijing" : "无所不有北京"}
