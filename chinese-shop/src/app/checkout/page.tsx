@@ -93,9 +93,22 @@ export default function Checkout() {
           ))}
         </ul>
         <h1 className="mt-6 text-4xl">{isOn ? "Total" : "全部的钱"}</h1>
-        <h2 className="text-2xl">
+        <h2 className="text-2xl mb-8">
           ${cart.reduce((acc, p) => acc + p.price, 0) / 100}
         </h2>
+        <form class="p-6">
+          <h1 class="text-2xl">Full Name:</h1>
+          <input class="w-96 border-gray-200 rounded border-2 my-2 p-2" />
+          <h1 class="text-2xl">Email:</h1>
+          <input class="w-96 border-gray-200 rounded border-2 my-2  p-2" />
+          <h1 class="text-2xl">Address:</h1>
+          <input class="w-96 border-gray-200 rounded border-2 my-2  p-2" />
+          <h1 class="text-2xl">Credit Card Number:</h1>
+          <input
+            class="w-96 border-gray-200 rounded border-2 my-2  p-2"
+            placeholder="Please do not input a real credit card number"
+          />
+        </form>
       </div>
     </>
   );
