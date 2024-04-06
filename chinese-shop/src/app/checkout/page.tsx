@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import Logo from "../unnamed.png";
 
 type Product = {
   id: number;
@@ -15,6 +17,10 @@ export default function Checkout() {
     const cart = localStorage.getItem("cart");
     if (cart) {
       setCart(JSON.parse(cart));
+    }
+    const isOn = localStorage.getItem("isOn");
+    if (isOn) {
+      setIsOn(JSON.parse(isOn));
     }
   }, []);
 
@@ -33,6 +39,9 @@ export default function Checkout() {
     <>
       <nav className="flex p-4 gap-4 bg-gray-200">
         <Link href="/">
+          <Image src={Logo} width={40} height={40} alt="Logo" />
+        </Link>
+        <Link href="/">
           <h1 className="text-xl hover:bg-gray-300 rounded p-2">
             {isOn ? "Bold Beijing" : "无所不有北京"}
           </h1>
@@ -44,14 +53,17 @@ export default function Checkout() {
         </Link>
         <Link href="/checkout">
           <h1 className="text-xl hover:bg-gray-300 rounded p-2 ">
-            {isOn ? "Checkout" : "查看"}
+            {isOn ? "Checkout" : "结帐"}
           </h1>
         </Link>
       </nav>
       <div className="bg-white p-4 flex items-center">
         <h1 className="mr-4">English On?</h1>
         <button
-          onClick={() => setIsOn(!isOn)}
+          onClick={() => {
+            setIsOn(!isOn);
+            localStorage.setItem("isOn", JSON.stringify(!isOn));
+          }}
           className={`w-16 h-8 bg-gray-300 rounded-full p-1 ${
             isOn ? "bg-green-500" : ""
           }`}
@@ -82,15 +94,34 @@ export default function Checkout() {
                 onClick={() => removeFromCart(index)}
                 className="bg-red-500 text-white px-4 py-2 w-32 rounded mt-4 text-sm"
               >
-                Remove
+                {isOn ? "Remove" : "除去项目"}
               </button>
             </li>
           ))}
         </ul>
         <h1 className="mt-6 text-4xl">{isOn ? "Total" : "全部的钱"}</h1>
-        <h2 className="text-2xl">
+        <h2 className="text-2xl mb-8">
           ${cart.reduce((acc, p) => acc + p.price, 0) / 100}
         </h2>
+        <form>
+          <h1 className="text-2xl">{isOn ? "Full Name:" : "全名:"}</h1>
+          <input className="w-96 border-gray-200 rounded border-2 my-2 p-2" />
+          <h1 className="text-2xl">{isOn ? "Email" : "电子邮件地址:"}:</h1>
+          <input className="w-96 border-gray-200 rounded border-2 my-2  p-2" />
+          <h1 className="text-2xl">{isOn ? "Address:" : "地址:"}</h1>
+          <input className="w-96 border-gray-200 rounded border-2 my-2  p-2" />
+          <h1 className="text-2xl">
+            {isOn ? "Credit Card Number:" : "信用卡号码:"}
+          </h1>
+          <input
+            className="w-96 border-gray-200 rounded border-2 my-2  p-2"
+            placeholder={
+              isOn
+                ? "Please do not input a real credit card number"
+                : "请不要输入真实的信用卡号码"
+            }
+          />
+        </form>
       </div>
     </>
   );

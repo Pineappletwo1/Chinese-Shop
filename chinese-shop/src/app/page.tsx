@@ -1,13 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Logo from "./unnamed.png";
 
 export default function Home() {
   const [isOn, setIsOn] = useState(false);
+  useEffect(() => {
+    const isOn = localStorage.getItem("isOn");
+    if (isOn) {
+      setIsOn(JSON.parse(isOn));
+    }
+  }, []);
   return (
     <div>
-      <nav className="flex p-4 gap-4 bg-gray-200">
+      <nav className="flex p-4 gap-4 bg-gray-200 items-center">
+        <Link href="/">
+          <Image src={Logo} width={40} height={40} alt="Logo" />
+        </Link>
         <Link href="/">
           <h1 className="text-xl hover:bg-gray-300 rounded p-2">
             {isOn ? "Bold Beijing" : "无所不有北京"}
@@ -20,14 +31,17 @@ export default function Home() {
         </Link>
         <Link href="/checkout">
           <h1 className="text-xl hover:bg-gray-300 rounded p-2 ">
-            {isOn ? "Checkout" : "查看"}
+            {isOn ? "Checkout" : "结帐"}
           </h1>
         </Link>
       </nav>
       <div className="bg-white p-4 flex items-center">
         <h1 className="mr-4">English On?</h1>
         <button
-          onClick={() => setIsOn(!isOn)}
+          onClick={() => {
+            setIsOn(!isOn);
+            localStorage.setItem("isOn", JSON.stringify(!isOn));
+          }}
           className={`w-16 h-8 bg-gray-300 rounded-full p-1 ${
             isOn ? "bg-green-500" : ""
           }`}
@@ -56,7 +70,7 @@ export default function Home() {
           <p className="text-2xl text-white mt-6">
             {isOn
               ? "Welcome to Bold Beijing, your one-stop shop for all things Chinese!"
-              : "欢迎来打无所不有北京，这里你所有都可以找到！"}
+              : "欢迎光临无所不有北京，这里你所有都可以找到！"}
           </p>
         </div>
       </header>
