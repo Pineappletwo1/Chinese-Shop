@@ -88,7 +88,16 @@ export default function Checkout() {
                 <h3 className="text-xl">
                   {product[isOn ? "nameEn" : "nameCn"]}
                 </h3>
-                <p className="text-lg">${product.price / 100}</p>
+                <p className="text-lg">
+                  {product.discount > 0 ? (
+                    <>
+                      <s>${product.price / 100}</s> - $
+                      {product.price * 0.0001 * (100 - product.discount)}{" "}
+                    </>
+                  ) : (
+                    `$${product.price / 100}`
+                  )}
+                </p>
               </div>
               <button
                 onClick={() => removeFromCart(index)}
@@ -100,8 +109,10 @@ export default function Checkout() {
           ))}
         </ul>
         <h1 className="mt-6 text-4xl">{isOn ? "Total" : "全部的钱"}</h1>
-        <h2 className="text-2xl mb-8">
-          ${cart.reduce((acc, p) => acc + p.price, 0) / 100}
+        <h2 className="text-2xl mb-8 mt-2">
+          $
+          {cart.reduce((acc, p) => acc + p.price * (100 - p.discount), 0) /
+            10000}
         </h2>
         <form>
           <h1 className="text-2xl">{isOn ? "Full Name:" : "全名:"}</h1>
